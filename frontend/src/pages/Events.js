@@ -8,3 +8,12 @@ function EventsPage() {
 }
 
 export default EventsPage;
+
+export async function loader(){
+   const response = await  fetch('http://localhost:3000/events');
+
+    if (!response.ok) {
+    } else {
+      return response;
+    }
+}
