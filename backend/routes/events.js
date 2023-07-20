@@ -102,7 +102,9 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: 'Event deleted.' });
+    setTimeout(() => {
+      res.status(201).json({ message: 'Event deleted.' , event: data});
+    }, 1500);
   } catch (error) {
     next(error);
   }
